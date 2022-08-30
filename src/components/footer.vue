@@ -70,8 +70,19 @@ export default {
 }}
 </script>
 
-<style>
+<style lang="scss">
   .progress{
+    -webkit-appearance: none;
     transition: width 0.5s ease-in;
+    outline: none;
+
+    &.progress::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 4px;
+	height: 6px;
+	background-color: #ccc;
+	cursor: pointer;
+}
   }
 </style>

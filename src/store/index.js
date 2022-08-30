@@ -72,10 +72,22 @@ export default createStore({
       currentArtist: "Unknown",
       duration: "00:00",
       durationLeft: "",
-      playingTime:0
+      playingTime:0,
+      singlePlaying:true,
     };
   },
   mutations: {
+    playSingle(state, n){
+let array = state.playlist;
+let song = array.find(item => item.title == n);
+state.index = (array.indexOf(song)); 
+state.isPlaying = true;
+state.currentTitle =song.title;
+state.currentArtist = song.artist;
+state.currentImageSrc = song.image;
+state.player.src = song.url;
+state.player.play();
+    },
     played(state) {
       state.isPlaying = true;
       state.currentTitle = state.playlist[state.index].title;
