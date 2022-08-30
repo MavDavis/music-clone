@@ -1,30 +1,54 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
-</template>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+    <div class="bg-dark h-screen">
+      <div class="flex" style="height: 88vh">
+        <div class="w-56 bg-black h-full flex-none">
+          <Sidebar/>
+        </div>
+        <div class="w-full h-full relative overflow-y-scroll">
+  
+      <navbar/>
+     <router-view/>
+  </div>
+      </div>
+      <div class="w-full flex" style="height: 12vh;">
+        <Footer />
+      </div>
+    </div>
+  </template>
+  
+  <script>
+  import axios from "axios";
+  import Sidebar from "./components/sidebar.vue";
+  import navbar from "./components/navbar.vue";
+  import Footer from "./components/footer.vue";
+  
+  export default {
+    name: "Home",
+    created() {
+      const options = {
+        method: "GET",
+        url: "https://deezerdevs-deezer.p.rapidapi.com/infos",
+        headers: {
+          "X-RapidAPI-Key": "459994e2damsh0c32bb02861e4adp132ac1jsn91f2f0431102",
+          "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+        },
+      };
+      axios
+        .request(options)
+        .then(function (response) {
+          console.log(response.data);
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    },
+    components: { Sidebar, Footer , navbar},
+  };
+  </script>
+  
+  <style>
+  * {
+    transition: ease 0.6s;
   }
-}
-</style>
+  </style>
+  
