@@ -4,7 +4,6 @@ export default createStore({
     return {
       isPlaying: false,
       index: 0,
-
       currentImageSrc: "https://source.unsplash.com/crs2vlkSe98/400x400",
       playlist: [
         {
@@ -73,6 +72,7 @@ export default createStore({
       currentArtist: "Unknown",
       duration: "00:00",
       durationLeft: "",
+      playingTime:0
     };
   },
   mutations: {
@@ -84,15 +84,26 @@ export default createStore({
 
       state.player.src = state.playlist[state.index].url;
       state.player.play();
+
+      state.player.ontimeupdate = ()=>{
+
+        setInterval(() => {
+          newTime++
+          console.log(newTime);
+
+        }, 1000);
+
+      }     
       state.duration = state.player.duration;
       console.log(state.player.duration);
       state.currentImageSrc = state.playlist[state.index].image;
     },
+
     paused(state) {
       state.isPlaying = false;
       state.player.pause();
       state.duration = state.player.duration;
-      console.log(state.player.duration);
+
     },
     next(state) {
       if (state.index <= state.playlist.length - 2) {

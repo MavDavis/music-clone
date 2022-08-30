@@ -36,8 +36,8 @@
         {{ musicTotalTime - timePlayed }}
       </div>
       <div class="w-1/2 mt-4 bg-dark rounded-full h-1 opacity-75 hover:opacity-100 flex items-center">
-        <div class="bg-green h-1 rounded-full w-1/2"></div>
-        <div class="rounded-full bg-white h-2 w-2 -ml-1 shadow"></div>
+        <input id="progress" class="progress bg-dark w-full rounded-3 height-1" type="range" v-model="$store.state.playingTime" step="0.1" min="0" max="100" />
+
       </div>
       <div class="text-lightest hover:text-white text-xs -mb-3 ml-2">
         {{ $store.state.duration}}
@@ -61,6 +61,7 @@ export default {
       musicTotalTime: 3.0,
       timePlayed: 1.5,
       isPlaying:false,
+
     };
   },
   computed:{
@@ -70,4 +71,7 @@ export default {
 </script>
 
 <style>
+  .progress{
+    transition: width 0.5s ease-in;
+  }
 </style>
