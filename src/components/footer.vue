@@ -11,7 +11,8 @@
   </div>
 
   <div class="flex flex-col justify-center w-1/2 items-center">
-    <div class="flex iems-center">
+    <seekbar/>
+    <!-- <div class="flex iems-center">
       <button class="mx-5 text-lightest hover:text-white">
         <i class="fas fa-shuffle"></i></button>
         <button @click=" $store.commit('prev')" class="text-lightest hover:text-white">
@@ -35,14 +36,14 @@
       <div class="text-lightest hover:text-white text-xs -mb-3 mr-2">
         {{ musicTotalTime - timePlayed }}
       </div>
+     
       <div class="w-1/2 mt-4 bg-dark rounded-full h-1 opacity-75 hover:opacity-100 flex items-center">
-        <input id="progress" class="progress bg-dark w-full rounded-3 height-1" type="range" v-model="$store.state.playingTime" step="0.1" min="0" max="100" />
-
+        <Seekbar/>
       </div>
       <div class="text-lightest hover:text-white text-xs -mb-3 ml-2">
         {{ $store.state.duration}}
       </div>
-    </div>
+    </div> -->
   </div>
   <div class="flex items-center w-1/4">
     <i class="fa-list-music text-lightest"></i>
@@ -54,7 +55,11 @@
 </template>
 
 <script>
+  import Seekbar from './seekbar.vue';
 export default {
+  components:{
+    Seekbar
+  },
   data() {
     return {
       width: 50,

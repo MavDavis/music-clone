@@ -96,7 +96,7 @@ export default createStore({
 
         },
       ],
-      player: new Audio(),
+      url: require("../assets/audio/prisoner.mp3"),
       currentTitle: "[FREE] Freestyle Type Beat",
       currentArtist: "Unknown",
       duration: "00:00",
@@ -165,7 +165,7 @@ state.player.play();
         state.currentTitle = state.playlist[state.index].title;
         state.currentArtist = state.playlist[state.index].artist;
         state.player.src = state.playlist[state.index].url;
-        state.player.play();
+        // state.player.play();
         state.duration = state.player.duration;
       }
     },
@@ -177,7 +177,7 @@ state.player.play();
         state.currentTitle = state.playlist[state.index].title;
         state.currentArtist = state.playlist[state.index].artist;
         state.player.src = state.playlist[state.index].url;
-        state.player.play();
+        // state.player.play();
         state.duration = state.player.duration;
       }
     },
