@@ -7,25 +7,25 @@
       </audio>
     </div>
 
-    <div class="w-full bg- px-2 pt-2 mt-4 relative">
-      <div id="player-row" class="inline-flex flex-wrap w-full max-w-5xl">
+    <div class="w-full  px-2 pt-2 mt-4 relative">
+      <div id="player-row" class="inline-flex flex-wrap w-full max-w-5xl ">
         <div id="button-div" class="flex-initial pr-3">
           <i
             @click="toggleAudio()"
-            v-show="!isPlaying"
-            class="play-button text-light fas fa-play"
+            v-if="!isPlaying"
+            class="play-button text-lightest hover:text-white fas fa-play-circle cursor-pointer fa-2x"
           ></i>
 
           <i
             @click="toggleAudio()"
-            v-show="isPlaying"
-            class="play-button text-white  cursor-pointer fas fa-pause"
+            v-else
+            class="play-button text-lightest hover:text-white  cursor-pointer fas fa-pause fa-2x"
           >
           </i>
         </div>
 
         <div id="progress-bar" class="flex-grow">
-          <div class="overlay-container relative w-full h-2 ">
+          <div class="overlay-container relative w-full h-1 ">
             <input
 
               v-model="playbackTime"
@@ -36,21 +36,20 @@
               id="position"
               name="position"
             />
-
             <!-- Show loading indicator until audio has been loaded -->
 
-            <div
+            <!-- <div
               v-show="audioLoaded"
-              class="flex w-full justify-between absolute top-0 bottom-0 right-0 left-0 px-2 pointer-events-none"
+              class="flex w-full justify-between  px-2 pointer-events-none"
             >
-              <span class="text-sm border border-dark" style="color: #94bcec">
+              <span class="text-xs  text-white" >
                 {{ elapsedTime }}</span
               >
 
-              <span class="text-sm" style="color: #94bcec"
+              <span class="text-xs text-white" 
                 >{{ totalTime }}
               </span>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -97,7 +96,6 @@ export default {
       audioDuration: 100,
       audioLoaded: false,
       isPlaying: false,
-      url: require("../assets/audio/beats.mp3"),
     };
   },
   methods: {
@@ -230,7 +228,7 @@ input[type="range"]:focus {
   outline: none;
 }
 ::-webkit-slider-runnable-track {
-  background: #fff;
+  background: #121212;
 }
 /*
  * 1. Set to 0 width and remove border for a slider without a thumb
@@ -240,7 +238,7 @@ input[type="range"]:focus {
   width: 0; /* 1 */
   height: 40px;
   background: #fff;
-  box-shadow: -100vw 0 0 100vw dodgerblue;
+  box-shadow: -100vw 0 0 100vw #1DB954;
   border: none; /* 2px solid #999; */
 }
 ::-moz-range-track {
@@ -253,15 +251,14 @@ input[type="range"]:focus {
   width: 0; /* 20px; */
   border: none; /* 3px solid #999; */
   border-radius: 0 !important;
-  box-shadow: -100vw 0 0 100vw dodgerblue;
+  box-shadow: -100vw 0 0 100vw #1DB954;
   box-sizing: border-box;
 }
 ::-ms-fill-lower {
-  background: dodgerblue;
+  background: #1DB954;
 }
 ::-ms-thumb {
   background: #fff;
-  border: 2px solid #999;
   height: 40px;
   width: 20px;
   box-sizing: border-box;

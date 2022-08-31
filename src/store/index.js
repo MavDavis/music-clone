@@ -96,7 +96,7 @@ export default createStore({
 
         },
       ],
-      url: require("../assets/audio/prisoner.mp3"),
+      url: require("../assets/audio/older.mp3"),
       currentTitle: "[FREE] Freestyle Type Beat",
       currentArtist: "Unknown",
       duration: "00:00",
@@ -116,9 +116,9 @@ state.isPlaying = true;
 state.currentTitle =song.title;
 state.currentArtist = song.artist;
 state.currentImageSrc = song.image;
-state.player.src = song.url;
+state.url = song.url;
 song.isPlaying = true
-state.player.play();
+
     },
     pauseSingle(state, n){
       let array = state.playlist;
