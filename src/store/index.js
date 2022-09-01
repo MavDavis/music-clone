@@ -69,8 +69,8 @@ export default createStore({
 
         },
         {
-          title: "Sasha Sloan",
-          artist: "Older ",
+          title: "Older ",
+          artist: "Sasha Sloan",
           url: require("../assets/audio/older.mp3"),
           image: "https://source.unsplash.com/j0g8taxHZa0/400x400",
           isPlaying:false,
@@ -78,8 +78,8 @@ export default createStore({
 
         },
         {
-          title: "Hillsong",
-          artist: "Silent Night  ",
+          title: "Silent Night ",
+          artist: " Hillsong",
           url: require("../assets/audio/silent.mp3"),
           image: "https://source.unsplash.com/j0g8taxHZa0/400x400",
           isPlaying:false,
@@ -97,11 +97,8 @@ export default createStore({
         },
       ],
       url: require("../assets/audio/older.mp3"),
-      currentTitle: "[FREE] Freestyle Type Beat",
-      currentArtist: "Unknown",
-      duration: "00:00",
-      durationLeft: "",
-      playingTime:0,
+      currentTitle: "",
+      currentArtist: "",
   
     };
   },
@@ -123,7 +120,6 @@ song.isPlaying = true
     pauseSingle(state, n){
       let array = state.playlist;
       let song = array.find(item => item.title == n);
-      state.player.pause();
       song.isPlaying = false
       state.isPlaying = false;
     },
@@ -133,26 +129,12 @@ song.isPlaying = true
       state.currentArtist = state.playlist[state.index].artist;
       state.currentImageSrc = state.playlist[state.index].image;
 
-      state.player.src = state.playlist[state.index].url;
-      state.player.play();
-
-      state.player.ontimeupdate = ()=>{
-
-        setInterval(() => {
-          newTime++
-          console.log(newTime);
-
-        }, 1000);
-
-      }     
-      state.duration = state.player.duration;
-      console.log(state.player.duration);
+      state.player.src = state.playlist[state.index].url;   
       state.currentImageSrc = state.playlist[state.index].image;
     },
 
     paused(state) {
       state.isPlaying = false;
-      state.player.pause();
       state.duration = state.player.duration;
     
     },
@@ -164,9 +146,7 @@ song.isPlaying = true
         state.currentImageSrc = state.playlist[state.index].image;
         state.currentTitle = state.playlist[state.index].title;
         state.currentArtist = state.playlist[state.index].artist;
-        state.player.src = state.playlist[state.index].url;
-        // state.player.play();
-        state.duration = state.player.duration;
+        state.url = state.playlist[state.index].url;
       }
     },
     prev(state) {
@@ -176,9 +156,8 @@ song.isPlaying = true
         state.currentImageSrc = state.playlist[state.index].image;
         state.currentTitle = state.playlist[state.index].title;
         state.currentArtist = state.playlist[state.index].artist;
-        state.player.src = state.playlist[state.index].url;
-        // state.player.play();
-        state.duration = state.player.duration;
+        state.url = state.playlist[state.index].url;
+   
       }
     },
   },

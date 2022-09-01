@@ -55,21 +55,14 @@
       </div>
     </div>
 
-    <!-- outer gray border -->
   </div>
-  <!-- white bg -->
 </template>
 
 <script>
 import { mapState } from "vuex";
 export default {
   props: ["playerid"],
-  /**
-   * playbackTime = local var that syncs to audio.currentTime
-   * audioDuration = duration of audio file in seconds
-   * isPlaying = boolean (true if audio is playing)
-   *
-   **/
+  
   computed: {
     elapsedTime() {
       var audio = this.$refs.player;
