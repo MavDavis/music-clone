@@ -106,18 +106,11 @@ export default {
       var minutes = (seconds % 3600) / 60;
       return [minutes, seconds % 60].map(format).join(":");
     },
-    //Show the total duration of audio file
-
-    //Display the audio time elapsed so far
-
-    //Playback listener function runs every 100ms while audio is playing
+  
     playbackListener(e) {
       var audio = this.$refs.player;
-      //Sync local 'playbackTime' var to audio.currentTime and update global state
       this.playbackTime = audio.currentTime;
 
-      //console.log("update: " + audio.currentTime);
-      //Add listeners for audio pause and audio end events
       audio.addEventListener("ended", this.endListener);
       audio.addEventListener("pause", this.pauseListener);
     },

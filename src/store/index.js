@@ -87,6 +87,24 @@ export default createStore({
 
         },
         {
+          title: "God Will Make A Way",
+          artist: "Don Moen",
+          url: require("../assets/audio/makeaway.mp3"),
+          image: "https://source.unsplash.com/j0g8taxHZa0/400x400",
+          isPlaying:false,
+          isLiked:false,
+
+        },
+        {
+          title: "Holy Spirit (Official audio)",
+          artist: "Jesus Culture ",
+          url: require("../assets/audio/holyspirit.mp3"),
+          image: "https://source.unsplash.com/j0g8taxHZa0/400x400",
+          isPlaying:false,
+          isLiked:false,
+
+        },
+        {
           title: "I'm a prisoner",
           artist: "Lucky Dube ",
           url: require("../assets/audio/prisoner.mp3"),

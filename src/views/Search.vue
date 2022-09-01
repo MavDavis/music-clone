@@ -24,19 +24,11 @@
           }
       },
       mounted(){
-          this.music = this.$store.state.playlist
+          this.music = this.$store.state.playlist.slice(0,10)
   
       },
           components: { Card },
       methods:{
-        checkName (name, str) {
-    var pattern = str.split("").map((x)=>{
-        return `(?=.*${x})`
-    }).join("");
-    var regex = new RegExp(`${pattern}`, "g")
-    return name.match(regex);
-}
-,
           filterMusic(){
               let items = this.$store.state.playlist;
              let newValue = (this.searchInput+'').toLowerCase()
