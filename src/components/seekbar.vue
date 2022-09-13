@@ -56,6 +56,7 @@
     </div>
 
   </div>
+  <!-- gt -->
 </template>
 
 <script>
