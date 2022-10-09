@@ -29,14 +29,5 @@ props:['songs']
 <style lang="scss">
     i.like{
         color:#1DB954;
-        
-    }
-    
-// .card{
-//     transition: 0.5s;
-
-//     &:hover{
-//         transform: translateY(-5px);
-//     }
-// }
+      }
 </style>
